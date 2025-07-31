@@ -1,0 +1,6 @@
+apiVersion: v2
+name: app-with-autoupdate-and-traefik-ingress
+description: A simple app deployment with auto-update via flux and ingress with certificate by cert-manager
+type: application
+version: 0.1.0
+appVersion: "0.0.0"

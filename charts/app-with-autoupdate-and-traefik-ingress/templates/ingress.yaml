@@ -1,0 +1,20 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ include "app-with-autoupdate-and-ingress.fullname" . }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    {{- $root := . -}}
+    {{- range .Values.ingress.dnsNames }}
+    - match: Host(`{{ . }}`)
+      kind: Rule
+      services:
+        - name: {{ include "app-with-autoupdate-and-ingress.fullname" $root }}
+          port: {{ $root.Values.service.port }}
+    {{- end }}
+  tls:
+    secretName: {{ include "app-with-autoupdate-and-ingress.fullname" . }}-cert
+{{- end }}

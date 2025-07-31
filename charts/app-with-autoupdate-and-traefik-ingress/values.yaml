@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: ""
+  pullSecret: "" # Optional image pull secret will be used for deployment and image updater
+
+imageUpdater:
+  enabled: true
+  source:
+    name: sample-git-repo
+    namespace: flux-system
+    branch: main
+    path: ./flux/prod
+  filterTags: {}
+  policy: {}
+
+ingress:
+  enabled: true
+  dnsNames:
+    - example.com
+    - www.example.com
+  tls:
+    enabled: true
+    clusterIssuerName: letsencrypt-prod
+
+service:
+  type: ClusterIP
+  port: 80
+
+serviceAccount:
+  create: true
+
+resources: {}
+podSecurityContext: {}
+securityContext: {}

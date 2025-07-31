@@ -1,0 +1,16 @@
+{{- if .Values.ingress.tls.enabled}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "app-with-autoupdate-and-ingress.fullname" . }}
+spec:
+  commonName: {{ .Values.ingress.dnsNames | first }}
+  secretName: {{ include "app-with-autoupdate-and-ingress.fullname" . }}-cert
+  dnsNames:
+    {{- range .Values.ingress.dnsNames }}
+    - {{ . }}
+    {{- end }}
+  issuerRef:
+    name: {{ .Values.ingress.tls.clusterIssuerName }}
+    kind: ClusterIssuer
+{{- end}}
