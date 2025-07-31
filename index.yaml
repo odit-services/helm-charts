@@ -3,6 +3,17 @@ entries:
   app-with-autoupdate-and-traefik-ingress:
   - apiVersion: v2
     appVersion: 0.0.0
+    created: "2025-07-31T14:42:04.291088493Z"
+    description: A simple app deployment with auto-update via flux and ingress with
+      certificate by cert-manager
+    digest: 2a6d9c2af6eb7dc716037083d671eacd0ddee7bc00b49930f43d8c5463cd9567
+    name: app-with-autoupdate-and-traefik-ingress
+    type: application
+    urls:
+    - https://github.com/odit-services/helm-charts/releases/download/app-with-autoupdate-and-traefik-ingress-0.1.2/app-with-autoupdate-and-traefik-ingress-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.0.0
     created: "2025-07-31T14:37:33.299631311Z"
     description: A simple app deployment with auto-update via flux and ingress with
       certificate by cert-manager
@@ -23,4 +34,4 @@ entries:
     urls:
     - https://github.com/odit-services/helm-charts/releases/download/app-with-autoupdate-and-traefik-ingress-0.1.0/app-with-autoupdate-and-traefik-ingress-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-31T14:37:33.299635686Z"
+generated: "2025-07-31T14:42:04.291110035Z"
